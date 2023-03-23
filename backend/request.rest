@@ -1,0 +1,100 @@
+
+### GET Database
+GET http://localhost:5000/kas
+###
+GET http://localhost:5000/kontrak
+###
+GET http://localhost:5000/bebanusaha
+###
+
+### GET By Id Database
+GET http://localhost:5000/users/62716865cc53c06d1cbe35ea
+
+### 
+GET http://localhost:5000/stocks/6275e48fd87eacb8b10ba552
+
+
+### POST Database
+POST http://localhost:5000/kas
+Content-Type: application/json
+
+{
+    "tanggal": "2023-01-02T00:00:00.000Z",
+    "vendor": "Bank Mandiri",
+    "keterangan": "CK IR 510212",
+    "pekerjaan": "-",
+    "in": "75000000",
+    "out": "182500",
+    "saldo": "3000000",
+    "totalSaldo": "5585654",
+    "new_in": "11171308"
+}
+###
+POST http://localhost:5000/kontrak
+Content-Type: application/json
+
+{
+    "tgl_kontrak": "2023-03-11",
+    "nomor_kontrak": "X0011",
+    "nama_pekerjaan": "penebangan pohon",
+    "nilai_kontrak": "15000000",
+    "dpp": "125000",
+    "ppn": "125000",
+    "pph": "125000",
+    "netto_akhir": "125000",
+    "modal": "15000000",
+    "profit": "3000000",
+    "total_upp": "125000",
+    "laba_rugi": "10"
+}
+###
+POST http://localhost:5000/bebanusaha
+Content-Type: application/json
+
+{
+    "gaji_karyawan": "3500000",
+    "beban_operasional": "1500000",
+    "biaya_jamsostek": "100000",
+    "biaya_lain": "10",
+    "biaya_aset": "100000",
+    "biaya_jilid": "10000",
+    "biaya_atk": "10000"
+}
+
+### Update Database
+PATCH http://localhost:5000/users/627215005e999cbff291ff75
+Content-Type: application/json
+
+{
+    "nama_supplier": "ASDAD",
+    "alamat": "DASA",
+    "no_tlp": "08127DAS7932775"
+}
+###
+PATCH http://localhost:5000/suppliers/627215005e999cbff291ff75
+Content-Type: application/json
+
+{
+    "nama_supplier": "ASDAD",
+    "alamat": "DASA",
+    "no_tlp": "081231"
+}
+
+###
+PATCH http://localhost:5000/stocks/62751d349d489a3c75b41aa4
+Content-Type: application/json
+
+{
+    "nama_barang": "Penggaris Kenko",
+    "jumlah": "3",
+    "nama_supplier_stock": "UPT Jakarta Pusat",
+    "tgl_masuk": "2022-05-03",
+    "kategori": "Stationery"
+}
+
+### Delete Database
+DELETE http://localhost:5000/users/6260df1079a1ece803c32b75
+###
+DELETE http://localhost:5000/suppliers/627215495e999cbff291ff79
+###
+DELETE http://localhost:5000/stocks/62751d349d489a3c75b41aa4
