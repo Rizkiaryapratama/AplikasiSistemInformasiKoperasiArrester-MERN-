@@ -1,9 +1,7 @@
 import { ResponsivePie } from "@nivo/pie";
 import { tokens } from "../theme";
 import { useTheme } from "@mui/material";
-import { mockPieData as data } from "../data/mockData";
 import { useState, useEffect } from "react";
-// import { getKontrak } from "../api/api
 
 const PieChart = () => {
   const theme = useTheme();
@@ -11,7 +9,7 @@ const PieChart = () => {
 
   const [pieData, setPieData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/bebanusaha")
+    fetch("https://serveraplikasiarrester.cyclic.app/bebanusaha")
       .then((response) => response.json())
       .then((data) => {
         const chartData = [

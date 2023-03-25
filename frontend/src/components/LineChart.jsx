@@ -3,7 +3,6 @@ import { ResponsiveLine } from "@nivo/line";
 import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
 import { format } from "date-fns";
-// import {NumericFormat} from "react-number-format";
 
 const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
   const theme = useTheme();
@@ -11,7 +10,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
 
   const [lineData, setLineData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/kas")
+    fetch("https://serveraplikasiarrester.cyclic.app/kas")
       .then((response) => response.json())
       .then((data) => {
         const lastSevenData = data.slice(-20); // Get the last 25 items from the data array
