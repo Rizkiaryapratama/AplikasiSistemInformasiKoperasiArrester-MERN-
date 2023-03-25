@@ -43,21 +43,6 @@ const Dashboard = () => {
     setIsLoading(false); // Set isLoading to false after fetching data
   };
 
-  if (isLoading) {
-    return (
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "75vh",
-        }}
-      >
-        <CircularProgress color="secondary" size={64} />
-      </Box>
-    );
-  }
-
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -230,6 +215,21 @@ const Dashboard = () => {
     ((totalLabaRugi - totalLabaRugi2) / totalLabaRugi) *
     100
   ).toFixed(2);
+
+  if (isLoading) {
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "75vh",
+        }}
+      >
+        <CircularProgress color="secondary" size={64} />
+      </Box>
+    );
+  }
 
   return (
     <Box m="20px">
