@@ -12,16 +12,16 @@ const BarChart = ({ isDashboard = false }) => {
   //bridge to backend
   const [kontrak, setKontrak] = useState([]);
   useEffect(() => {
-    fetchKas();
+    fetchKontrak();
     // eslint-disable-next-line
   }, []);
 
   //get
-  const fetchKas = async () => {
+  const fetchKontrak = async () => {
     const data = await getKontrak();
-    setKontrak(data);
+    const latestData = data.slice(-15);
+    setKontrak(latestData);
   };
-
   const keys = [
     "nilai_kontrak",
     "dpp",

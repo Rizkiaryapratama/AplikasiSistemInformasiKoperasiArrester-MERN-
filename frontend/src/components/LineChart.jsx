@@ -45,7 +45,6 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
       .catch((error) => console.log(error));
   }, []);
 
-
   return (
     <ResponsiveLine
       data={lineData}

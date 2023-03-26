@@ -60,7 +60,16 @@ const Dashboard = () => {
     100
   ).toFixed(2);
   const barTotalSaldo = percentageTotalSaldo / 100;
-
+  //Keterangan
+  const Keterangan = kas.length > 0 ? kas[kas.length - 1].keterangan : 0;
+  //Pengeluaran Terbaru
+  const pengeluaranTerbaru = kas.length > 0 ? kas[kas.length - 1].out : 0;
+  const pengeluaranTerbaru2 = kas.length > 0 ? kas[kas.length - 2].out : 0;
+  const percentagePengeluaran = (
+    ((pengeluaranTerbaru - pengeluaranTerbaru2) / pengeluaranTerbaru) *
+    100
+  ).toFixed(2);
+  const barPengeluaran = percentagePengeluaran / 100;
   //Vendor Terbaru
   const vendorTerbaru = kas.length > 0 ? kas[kas.length - 1].vendor : 0;
   //Jumlah Vendor
@@ -72,7 +81,6 @@ const Dashboard = () => {
   const barJumlahVendor = percentageJumlahVendor / 100;
   //Saldo Terkini
   const currentSaldo = kas.length > 0 ? kas[kas.length - 1].totalSaldo : 0;
-
   const currentSaldo2 = kas.length > 0 ? kas[kas.length - 2].totalSaldo : 0;
   const change = currentSaldo - currentSaldo2;
   const changeSign = change >= 0 ? "+" : "-";
@@ -239,7 +247,6 @@ const Dashboard = () => {
           title="DASHBOARD"
           subtitle="Halaman Dashboard Koperasi Arrester"
         />
-
         <Box>
           <Button
             sx={{
@@ -251,12 +258,27 @@ const Dashboard = () => {
             }}
           >
             <DownloadOutlinedIcon sx={{ mr: "10px" }} />
-            Download Reports
+            Download Laporan Laba
           </Button>
         </Box>
       </Box>
 
       {/* GRID & CHARTS */}
+
+      <Box
+        gridColumn="span 3"
+        backgroundColor={colors.primary[400]}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        borderBottom={`4px solid ${colors.primary[500]}`}
+        colors={colors.grey[100]}
+        p="12px"
+      >
+        <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
+          Informasi Data Kas Umum Terbaru
+        </Typography>
+      </Box>
       <Box
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
@@ -272,17 +294,10 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title={
-              <NumericFormat
-                value={totalSaldo}
-                displayType={"text"}
-                thousandSeparator={true}
-                prefix={"Rp "}
-              />
-            }
-            subtitle="Total Saldo Masuk"
-            progress={barTotalSaldo}
-            increase={`${changeSign}${percentageTotalSaldo}%`}
+            title={vendorTerbaru}
+            subtitle="Vendor"
+            progress={barJumlahVendor}
+            increase={`${changeSign}${percentageJumlahVendor}%`}
             icon={
               <AddBusinessIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -300,15 +315,15 @@ const Dashboard = () => {
           <StatBox
             title={
               <NumericFormat
-                value={currentSaldo}
+                value={pengeluaranTerbaru}
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"Rp "}
               />
             }
-            subtitle="Saldo Terkini"
-            progress={barSaldoTerkini}
-            increase={`${changeSign}${percentageChange}%`}
+            subtitle="Pengeluaran"
+            progress={barPengeluaran}
+            increase={`${changeSign}${percentagePengeluaran}%`}
             icon={
               <AttachMoneyIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -324,9 +339,10 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title={vendorTerbaru}
-            subtitle="Vendor Terbaru"
-            progress="0.30"
+            title={Keterangan}
+            subtitle="Keterangan"
+            progress="0.50"
+            increase="-"
             icon={
               <PersonAddIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
@@ -373,7 +389,7 @@ const Dashboard = () => {
                 fontWeight="600"
                 color={colors.grey[100]}
               >
-                Chart Buku Kas Umum
+                Saldo Terkini Kas Umum
               </Typography>
               <Typography
                 variant="h3"
@@ -419,7 +435,6 @@ const Dashboard = () => {
               Informasi Kontrak Pekerjaan Terbaru
             </Typography>
           </Box>
-
           <Box
             display="flex"
             justifyContent="space-between"
@@ -765,7 +780,6 @@ const Dashboard = () => {
               {`${changeSign}${percentageLabaRugi}%`}
             </Box>
           </Box>
-
           <Box
             display="flex"
             justifyContent="space-between"
@@ -777,6 +791,7 @@ const Dashboard = () => {
         </Box>
 
         {/* ROW 3 */}
+
         <Box
           gridColumn="span 4"
           gridRow="span 2"
@@ -784,7 +799,10 @@ const Dashboard = () => {
           p="30px"
         >
           <Typography variant="h5" fontWeight="600">
-            Campaign
+            Total Saldo Masuk
+          </Typography>
+          <Typography variant="h5" fontWeight="600">
+            Data Kas Umum
           </Typography>
           <Box
             display="flex"
@@ -792,13 +810,18 @@ const Dashboard = () => {
             alignItems="center"
             mt="25px"
           >
-            <ProgressCircle size="125" />
+            <ProgressCircle size="125" progress={barTotalSaldo} />
             <Typography
               variant="h5"
               color={colors.greenAccent[500]}
               sx={{ mt: "15px" }}
             >
-              $48,352 revenue generated
+              <NumericFormat
+                value={totalSaldo}
+                displayType={"text"}
+                thousandSeparator={true}
+                prefix={"Rp "}
+              />
             </Typography>
             <Typography>Includes extra misc expenditures and costs</Typography>
           </Box>
@@ -813,7 +836,7 @@ const Dashboard = () => {
             fontWeight="600"
             sx={{ padding: "30px 30px 0 30px" }}
           >
-            Sales Quantity
+            Bar Chart Kontrak Kerja
           </Typography>
           <Box height="250px" mt="-20px">
             <BarChart isDashboard={true} />
