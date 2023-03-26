@@ -7,11 +7,12 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getKontrak, deleteKontrak } from "../../api/api";
 import Moment from "react-moment";
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
 
 const DataKontrak = () => {
   //bridge to backend
   const [kontrak, setKontrak] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); 
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     fetchKontrak();
     // eslint-disable-next-line
@@ -144,6 +145,9 @@ const DataKontrak = () => {
         <Button
           onClick={() => {
             handleDelete(params.row._id);
+            enqueueSnackbar("Data Berhasil Dihapus!", {
+              variant: "success"
+            });
           }}
           color="warning"
           variant="contained"
@@ -226,6 +230,7 @@ const DataKontrak = () => {
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />
+        <SnackbarProvider/>
       </Box>
     </Box>
   );

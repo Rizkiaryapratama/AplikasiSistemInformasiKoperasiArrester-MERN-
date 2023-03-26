@@ -6,6 +6,7 @@ import { useTheme } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { deleteBebanUsaha, getBebanUsaha } from "../../api/api";
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
 
 const DataBebanUsaha = () => {
   //bridge to backend
@@ -100,6 +101,9 @@ const DataBebanUsaha = () => {
         <Button
           onClick={() => {
             handleDelete(params.row._id);
+            enqueueSnackbar("Data Berhasil Dihapus!", {
+              variant: "success",
+            });
           }}
           color="warning"
           variant="contained"
@@ -164,6 +168,7 @@ const DataBebanUsaha = () => {
           columns={column}
           components={{ Toolbar: GridToolbar }}
         />
+        <SnackbarProvider/>
       </Box>
     </Box>
   );

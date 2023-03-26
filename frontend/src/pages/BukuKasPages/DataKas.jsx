@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import { getKas, deleteKas } from "../../api/api";
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
 
 const DataKas = () => {
   //bridge to backend
@@ -101,6 +102,9 @@ const DataKas = () => {
         <Button
           onClick={() => {
             handleDelete(params.row._id);
+            enqueueSnackbar("Data Berhasil Dihapus!", {
+              variant: "success",
+            });
           }}
           color="warning"
           variant="contained"
@@ -183,6 +187,7 @@ if (isLoading) {
           columns={column}
           components={{ Toolbar: GridToolbar }}
         />
+        <SnackbarProvider/>
       </Box>
     </Box>
   );

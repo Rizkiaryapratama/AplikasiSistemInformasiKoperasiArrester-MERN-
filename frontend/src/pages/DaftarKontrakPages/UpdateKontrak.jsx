@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getKontrakById, updateKontrakById } from "../../api/api";
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
 
 const UpdateKontrak = () => {
   //bridgetobakcend
@@ -239,7 +240,17 @@ const UpdateKontrak = () => {
               />
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
-              <Button type="submit" color="secondary" variant="contained">
+              <SnackbarProvider />
+              <Button
+                type="submit"
+                color="secondary"
+                variant="contained"
+                onClick={() => {
+                  enqueueSnackbar("Berhasil Mengupdate Data!", {
+                    variant: "success",
+                  });
+                }}
+              >
                 Update Data
               </Button>
             </Box>

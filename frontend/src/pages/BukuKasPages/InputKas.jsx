@@ -12,6 +12,7 @@ import Header from "../../components/Header";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { postKas, getKas } from "../../api/api";
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
 
 const InputKas = () => {
   //bridgetobakcend
@@ -222,7 +223,17 @@ const InputKas = () => {
               </Select>
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
-              <Button type="submit" color="secondary" variant="contained">
+              <SnackbarProvider />
+              <Button
+                type="submit"
+                color="secondary"
+                variant="contained"
+                onClick={() => {
+                  enqueueSnackbar("Berhasil Menambah Data!", {
+                    variant: "success",
+                  });
+                }}
+              >
                 Simpan Data
               </Button>
             </Box>

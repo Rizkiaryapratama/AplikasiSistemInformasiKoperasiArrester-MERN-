@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getBebanUsahaById, updateBebanUsahaById } from "../../api/api";
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
 
 const UpdateBebanUsaha = () => {
   //bridgetobakcend
@@ -58,7 +59,10 @@ const UpdateBebanUsaha = () => {
 
   return (
     <Box m="20px">
-      <Header title="Data Beban Usaha" subtitle="Halaman Update Data Beban Usaha" />
+      <Header
+        title="Data Beban Usaha"
+        subtitle="Halaman Update Data Beban Usaha"
+      />
 
       <Formik>
         {({ errors, touched, handleBlur, handleSubmit }) => (
@@ -99,8 +103,12 @@ const UpdateBebanUsaha = () => {
                 onChange={(e) => setBebanOperasional(e.target.value)}
                 value={beban_operasional}
                 name="beban_operasional"
-                error={!!touched.beban_operasional && !!errors.beban_operasional}
-                helperText={touched.beban_operasional && errors.beban_operasional}
+                error={
+                  !!touched.beban_operasional && !!errors.beban_operasional
+                }
+                helperText={
+                  touched.beban_operasional && errors.beban_operasional
+                }
                 sx={{ gridColumn: "span 4" }}
               />
               <FormLabel sx={{ gridColumn: "span 3" }} className="label">
@@ -185,7 +193,17 @@ const UpdateBebanUsaha = () => {
               />
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
-              <Button type="submit" color="secondary" variant="contained">
+              <SnackbarProvider />
+              <Button
+                type="submit"
+                color="secondary"
+                variant="contained"
+                onClick={() => {
+                  enqueueSnackbar("Berhasil Mengupdate Data!", {
+                    variant: "success",
+                  });
+                }}
+              >
                 Update Data
               </Button>
             </Box>

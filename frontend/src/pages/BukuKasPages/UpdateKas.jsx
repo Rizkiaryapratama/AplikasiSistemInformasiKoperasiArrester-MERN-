@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getKasById, updateKasById } from "../../api/api";
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
 
 const UpdateKas = () => {
   //bridgetobakcend
@@ -222,7 +223,17 @@ const UpdateKas = () => {
               </Select>
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
-              <Button type="submit" color="secondary" variant="contained">
+              <SnackbarProvider/>
+              <Button
+                type="submit"
+                color="secondary"
+                variant="contained"
+                onClick={() => {
+                  enqueueSnackbar("Berhasil Mengupdate Data!", {
+                    variant: "success",
+                  });
+                }}
+              >
                 Update Data
               </Button>
             </Box>

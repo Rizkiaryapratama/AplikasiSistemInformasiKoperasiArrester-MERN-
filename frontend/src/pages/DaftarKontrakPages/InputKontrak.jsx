@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { postKontrak } from "../../api/api";
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
 
 const InputKontrak = () => {
   //bridgetobakcend
@@ -29,9 +30,9 @@ const InputKontrak = () => {
         nama_pekerjaan,
         nilai_kontrak,
         dpp,
-        ppn:dpp*0.11,
-        pph:dpp*0.005,
-        netto_akhir:(nilai_kontrak-(dpp*0.11)-(dpp*0.005)),
+        ppn: dpp * 0.11,
+        pph: dpp * 0.005,
+        netto_akhir: nilai_kontrak - dpp * 0.11 - dpp * 0.005,
         modal,
         profit,
         total_upp,
@@ -217,7 +218,17 @@ const InputKontrak = () => {
               />
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
-              <Button type="submit" color="secondary" variant="contained">
+              <SnackbarProvider/>
+              <Button
+                type="submit"
+                color="secondary"
+                variant="contained"
+                onClick={() => {
+                  enqueueSnackbar("Berhasil Menambah Data!", {
+                    variant: "success"
+                  });
+                }}
+              >
                 Simpan Data
               </Button>
             </Box>
