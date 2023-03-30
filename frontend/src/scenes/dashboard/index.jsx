@@ -274,6 +274,7 @@ const Dashboard = () => {
         borderBottom={`4px solid ${colors.primary[500]}`}
         colors={colors.grey[100]}
         p="12px"
+        borderRadius="10px"
       >
         <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
           Informasi Data Kas Umum Terbaru
@@ -292,6 +293,7 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          borderRadius="10px"
         >
           <StatBox
             title={vendorTerbaru}
@@ -311,6 +313,7 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          borderRadius="10px"
         >
           <StatBox
             title={
@@ -337,6 +340,7 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          borderRadius="10px"
         >
           <StatBox
             title={Keterangan}
@@ -356,6 +360,7 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          borderRadius="10px"
         >
           <StatBox
             title={jumlahVendor}
@@ -375,6 +380,7 @@ const Dashboard = () => {
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
+          borderRadius="10px"
         >
           <Box
             mt="25px"
@@ -422,6 +428,7 @@ const Dashboard = () => {
           gridRow="span 4"
           backgroundColor={colors.primary[400]}
           overflow="auto"
+          borderRadius="10px"
         >
           <Box
             display="flex"
@@ -502,7 +509,7 @@ const Dashboard = () => {
             </Box>
             <Box color={colors.grey[100]}>
               <NumericFormat
-                value={totalNilaiKontrak}
+                value={totalNilaiKontrak.toFixed(2)}
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"Rp "}
@@ -568,7 +575,7 @@ const Dashboard = () => {
             </Box>
             <Box color={colors.grey[100]}>
               <NumericFormat
-                value={totalPpn}
+                value={totalPpn.toFixed(2)}
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"Rp "}
@@ -601,7 +608,7 @@ const Dashboard = () => {
             </Box>
             <Box color={colors.grey[100]}>
               <NumericFormat
-                value={totalPph}
+                value={totalPph.toFixed(2)}
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"Rp "}
@@ -634,7 +641,7 @@ const Dashboard = () => {
             </Box>
             <Box color={colors.grey[100]}>
               <NumericFormat
-                value={totalNettoAkhir}
+                value={totalNettoAkhir.toFixed(2)}
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"Rp "}
@@ -667,7 +674,7 @@ const Dashboard = () => {
             </Box>
             <Box color={colors.grey[100]}>
               <NumericFormat
-                value={totalModal}
+                value={totalModal.toFixed(2)}
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"Rp "}
@@ -700,7 +707,7 @@ const Dashboard = () => {
             </Box>
             <Box color={colors.grey[100]}>
               <NumericFormat
-                value={totalProfitMitra}
+                value={totalProfitMitra.toFixed(2)}
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"Rp "}
@@ -728,12 +735,12 @@ const Dashboard = () => {
                 variant="h5"
                 fontWeight="600"
               >
-                SUM Total UPP :
+                SUM Total HPP :
               </Typography>
             </Box>
             <Box color={colors.grey[100]}>
               <NumericFormat
-                value={totalUpp}
+                value={totalUpp.toFixed(2)}
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"Rp "}
@@ -766,7 +773,7 @@ const Dashboard = () => {
             </Box>
             <Box color={colors.grey[100]}>
               <NumericFormat
-                value={totalLabaRugi}
+                value={totalLabaRugi.toFixed(2)}
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"Rp "}
@@ -797,6 +804,7 @@ const Dashboard = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           p="30px"
+          borderRadius="10px"
         >
           <Typography variant="h5" fontWeight="600">
             Total Saldo Masuk
@@ -830,6 +838,7 @@ const Dashboard = () => {
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
+          borderRadius="10px"
         >
           <Typography
             variant="h5"

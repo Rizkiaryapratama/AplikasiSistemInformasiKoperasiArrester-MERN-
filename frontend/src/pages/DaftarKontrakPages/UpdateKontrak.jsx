@@ -108,7 +108,7 @@ const UpdateKontrak = () => {
               <TextField
                 fullWidth
                 variant="filled"
-                type="number"
+                type="text"
                 label="Nomor Kontrak"
                 onBlur={handleBlur}
                 onChange={(e) => setNomorKontrak(e.target.value)}
