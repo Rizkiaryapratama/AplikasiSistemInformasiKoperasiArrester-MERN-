@@ -6,8 +6,9 @@ import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
+import GavelIcon from "@mui/icons-material/Gavel";
+import StorageIcon from "@mui/icons-material/Storage";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
@@ -105,14 +106,14 @@ const Sidebar = () => {
             <Item
               title="Input Data"
               to="/inputkas"
-              icon={<PeopleOutlinedIcon />}
+              icon={<BookmarkAddIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Lihat Data"
               to="/datakas"
-              icon={<ContactsOutlinedIcon />}
+              icon={<StorageIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -134,14 +135,14 @@ const Sidebar = () => {
             <Item
               title="Input Data"
               to="/inputkontrak"
-              icon={<PersonOutlinedIcon />}
+              icon={<GavelIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Lihat Data"
               to="/datakontrak "
-              icon={<CalendarTodayOutlinedIcon />}
+              icon={<StorageIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -163,7 +164,7 @@ const Sidebar = () => {
             <Item
               title="Lihat Data"
               to="/databebanusaha"
-              icon={<ContactsOutlinedIcon />}
+              icon={<StorageIcon />}
               selected={selected}
               setSelected={setSelected}
             />

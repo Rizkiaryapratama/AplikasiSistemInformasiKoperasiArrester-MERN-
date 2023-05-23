@@ -5,7 +5,7 @@ export const getBebanUsaha = async (req, res) => {
     const bebanusaha = await BebanUsaha.find();
     res.json(bebanusaha);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(400).json({ message: error.message });
   }
 };
 

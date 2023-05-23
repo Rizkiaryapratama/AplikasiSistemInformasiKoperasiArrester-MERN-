@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FullCalendar, { formatDate } from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -18,7 +18,13 @@ import { tokens } from "../../theme";
 const Calendar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [currentEvents, setCurrentEvents] = useState([]);
+  const [currentEvents, setCurrentEvents] = useState(
+    JSON.parse(localStorage.getItem("events")) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("events", JSON.stringify(currentEvents));
+  }, [currentEvents]);
 
   const handleDateClick = (selected) => {
     const title = prompt("Please enter a new title for your event");
@@ -26,13 +32,14 @@ const Calendar = () => {
     calendarApi.unselect();
 
     if (title) {
-      calendarApi.addEvent({
+      const newEvent = {
         id: `${selected.dateStr}-${title}`,
         title,
         start: selected.startStr,
         end: selected.endStr,
         allDay: selected.allDay,
-      });
+      };
+      setCurrentEvents([...currentEvents, newEvent]);
     }
   };
 
@@ -42,7 +49,10 @@ const Calendar = () => {
         `Are you sure you want to delete the event '${selected.event.title}'`
       )
     ) {
-      selected.event.remove();
+      const filteredEvents = currentEvents.filter(
+        (event) => event.id !== selected.event.id
+      );
+      setCurrentEvents(filteredEvents);
     }
   };
 
