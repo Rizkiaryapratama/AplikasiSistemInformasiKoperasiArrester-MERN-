@@ -13,6 +13,7 @@ import {
   InputAdornment,
   IconButton,
 } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import bglogin from "../../asset/img/bglogin.jpg";
@@ -21,6 +22,7 @@ import bglogin2 from "../../asset/img/bglogin2.jpg";
 const Login = () => {
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -28,6 +30,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true); // Set isLoading to true when the form is submitted
     try {
       const url = "https://scary-tiara-wasp.cyclic.app/api/auth";
       const { data: res } = await axios.post(url, data);
@@ -42,7 +45,9 @@ const Login = () => {
         setError(error.response.data.message);
       }
     }
+    setIsLoading(false); // Set isLoading back to false after the request is completed
   };
+
 
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -129,6 +134,7 @@ const Login = () => {
               <Button
                 type="submit"
                 variant="contained"
+                disabled={isLoading} // Disable the button when loading
                 sx={{
                   border: "none",
                   outline: "none",
@@ -142,7 +148,11 @@ const Login = () => {
                   marginTop: "20px",
                 }}
               >
-                Login
+                {isLoading ? (
+                  <CircularProgress size={24} color="inherit" /> // Show loading indicator
+                ) : (
+                  "Login" // Show the "Login" text
+                )}
               </Button>
             </form>
           </Box>
