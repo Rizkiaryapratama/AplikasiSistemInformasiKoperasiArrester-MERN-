@@ -189,6 +189,7 @@ const InputBebanUsaha = () => {
                     variant: "success",
                   });
                 }}
+                sx={{ marginBottom: 5 }}
               >
                 Simpan Data
               </Button>

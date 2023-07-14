@@ -204,6 +204,7 @@ const InputKas = () => {
                   // if condition is true, render new MenuItem with input field
                   <MenuItem value="">
                     <TextField
+                      fullWidth
                       label="Total Saldo"
                       variant="outlined"
                       value={inn}
@@ -233,6 +234,7 @@ const InputKas = () => {
                     variant: "success",
                   });
                 }}
+                sx={{ marginBottom: 5 }}
               >
                 Simpan Data
               </Button>

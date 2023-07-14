@@ -34,9 +34,6 @@ const UpdateKontrak = () => {
     setNamaPekerjaan(data.nama_pekerjaan);
     setNilaiKontrak(data.nilai_kontrak);
     setDpp(data.dpp);
-    // setPpn(data.ppn);
-    // setPph(data.pph);
-    // setNettoAkhir(data.netto_akhir);
     setModal(data.modal);
     setProfit(data.profit);
     setTotalUpp(data.total_upp);
@@ -86,7 +83,10 @@ const UpdateKontrak = () => {
                 "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
               }}
             >
-              <FormLabel sx={{ gridColumn: "span 3" }} className="label">
+              <FormLabel
+                sx={{ gridColumn: "span 3"}}
+                className="label"
+              >
                 Tanggal Kontrak
               </FormLabel>
               <TextField
@@ -102,7 +102,10 @@ const UpdateKontrak = () => {
                 sx={{ gridColumn: "span 4" }}
                 required={true}
               />
-              <FormLabel sx={{ gridColumn: "span 3" }} className="label">
+              <FormLabel
+                sx={{ gridColumn: "span 3"}}
+                className="label"
+              >
                 Nomor Kontrak
               </FormLabel>
               <TextField
@@ -119,7 +122,10 @@ const UpdateKontrak = () => {
                 sx={{ gridColumn: "span 4" }}
                 required={true}
               />
-              <FormLabel sx={{ gridColumn: "span 3" }} className="label">
+              <FormLabel
+                sx={{ gridColumn: "span 3"}}
+                className="label"
+              >
                 Nama Pekerjaan
               </FormLabel>
               <TextField
@@ -136,7 +142,10 @@ const UpdateKontrak = () => {
                 sx={{ gridColumn: "span 4" }}
                 required={true}
               />
-              <FormLabel sx={{ gridColumn: "span 3" }} className="label">
+              <FormLabel
+                sx={{ gridColumn: "span 3"}}
+                className="label"
+              >
                 Nilai Kontrak
               </FormLabel>
               <TextField
@@ -153,7 +162,10 @@ const UpdateKontrak = () => {
                 sx={{ gridColumn: "span 4" }}
                 required={true}
               />
-              <FormLabel sx={{ gridColumn: "span 3" }} className="label">
+              <FormLabel
+                sx={{ gridColumn: "span 3"}}
+                className="label"
+              >
                 Dpp
               </FormLabel>
               <TextField
@@ -170,7 +182,10 @@ const UpdateKontrak = () => {
                 sx={{ gridColumn: "span 4" }}
                 required={true}
               />
-              <FormLabel sx={{ gridColumn: "span 3" }} className="label">
+              <FormLabel
+                sx={{ gridColumn: "span 3"}}
+                className="label"
+              >
                 Modal
               </FormLabel>
               <TextField
@@ -187,7 +202,10 @@ const UpdateKontrak = () => {
                 sx={{ gridColumn: "span 4" }}
                 required={true}
               />
-              <FormLabel sx={{ gridColumn: "span 3" }} className="label">
+              <FormLabel
+                sx={{ gridColumn: "span 3"}}
+                className="label"
+              >
                 Profit Mitra
               </FormLabel>
               <TextField
@@ -204,7 +222,10 @@ const UpdateKontrak = () => {
                 sx={{ gridColumn: "span 4" }}
                 required={true}
               />
-              <FormLabel sx={{ gridColumn: "span 3" }} className="label">
+              <FormLabel
+                sx={{ gridColumn: "span 3"}}
+                className="label"
+              >
                 Total Upp
               </FormLabel>
               <TextField
@@ -221,7 +242,10 @@ const UpdateKontrak = () => {
                 sx={{ gridColumn: "span 4" }}
                 required={true}
               />
-              <FormLabel sx={{ gridColumn: "span 3" }} className="label">
+              <FormLabel
+                sx={{ gridColumn: "span 3"}}
+                className="label"
+              >
                 Laba Rugi
               </FormLabel>
               <TextField

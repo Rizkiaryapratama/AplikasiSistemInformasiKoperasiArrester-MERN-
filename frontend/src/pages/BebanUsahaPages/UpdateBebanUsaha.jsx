@@ -203,6 +203,7 @@ const UpdateBebanUsaha = () => {
                     variant: "success",
                   });
                 }}
+                sx={{ marginBottom: 5 }}
               >
                 Update Data
               </Button>

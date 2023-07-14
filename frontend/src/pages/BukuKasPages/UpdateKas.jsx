@@ -188,7 +188,7 @@ const UpdateKas = () => {
               <Select
                 fullWidth
                 variant="filled"
-                label="In"
+                label="Saldo"
                 onBlur={handleBlur}
                 onChange={(e) => setInn(e.target.value)}
                 value={inn}
@@ -223,7 +223,7 @@ const UpdateKas = () => {
               </Select>
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
-              <SnackbarProvider/>
+              <SnackbarProvider />
               <Button
                 type="submit"
                 color="secondary"
@@ -233,6 +233,7 @@ const UpdateKas = () => {
                     variant: "success",
                   });
                 }}
+                sx={{ marginBottom: 5 }}
               >
                 Update Data
               </Button>

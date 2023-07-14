@@ -31,7 +31,7 @@ const BarChart = ({ isDashboard = false }) => {
     "modal",
     "profit",
     "total_upp",
-    "laba_rugi"
+    "laba_rugi",
   ];
 
   return (
@@ -157,4 +157,3 @@ const BarChart = ({ isDashboard = false }) => {
 };
 
 export default BarChart;
-

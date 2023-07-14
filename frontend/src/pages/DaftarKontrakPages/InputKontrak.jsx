@@ -218,16 +218,17 @@ const InputKontrak = () => {
               />
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
-              <SnackbarProvider/>
+              <SnackbarProvider />
               <Button
                 type="submit"
                 color="secondary"
                 variant="contained"
                 onClick={() => {
                   enqueueSnackbar("Berhasil Menambah Data!", {
-                    variant: "success"
+                    variant: "success",
                   });
                 }}
+                sx={{ marginBottom: 5 }}
               >
                 Simpan Data
               </Button>
