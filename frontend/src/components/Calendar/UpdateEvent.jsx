@@ -25,6 +25,7 @@ const schema = yup
 const UpdateEvent = ({ updateEventApi, event, error }) => {
   const navigate = useNavigate();
   const [rerender, setRerender] = useState(false);
+  const [firstRender, setFirstRender] = useState(true); // Added
 
   //using form-hook to register event data
   const {

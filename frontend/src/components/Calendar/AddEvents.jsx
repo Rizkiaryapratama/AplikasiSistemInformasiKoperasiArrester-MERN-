@@ -22,6 +22,7 @@ const schema = yup
 const AddEvents = ({ addEventApi }) => {
   const navigate = useNavigate();
   const [rerender, setRerender] = useState(false);
+  const [firstRender, setFirstRender] = useState(true); // Added
 
   const {
     register,
