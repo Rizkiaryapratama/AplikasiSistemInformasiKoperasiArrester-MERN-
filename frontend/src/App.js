@@ -21,6 +21,11 @@ import UpdateKontrak from "./pages/DaftarKontrakPages/UpdateKontrak";
 import Login from "./pages/Login";
 import Signup from "./pages/Singup";
 
+//test
+import MyCalendar from "./components/Calendar/Calendar.jsx"
+import AddEvents from "./components/Calendar/AddEvents";
+import UpdateEvent from "./components/Calendar/UpdateEvent";
+
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
@@ -42,6 +47,10 @@ function App() {
             <Routes>
               <Route path="/signup" exact element={<Signup />} />
               <Route path="/login" exact element={<Login />} />
+              
+              <Route path="/events" exact element={<MyCalendar />} />
+              <Route path="/events/add" element={<AddEvents />} />
+              <Route path="/event/:id/update" element={<UpdateEvent />} />
 
               {userAccount ? (
                 <>

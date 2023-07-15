@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import Header from "../../components/Header";
 import { tokens } from "../../theme";
+import axios from "axios";
 
 const Calendar = () => {
   const theme = useTheme();
@@ -26,7 +27,7 @@ const Calendar = () => {
     localStorage.setItem("events", JSON.stringify(currentEvents));
   }, [currentEvents]);
 
-  const handleDateClick = (selected) => {
+  const handleDateClick = async (selected) => {
     const title = prompt("Please enter a new title for your event");
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
@@ -39,20 +40,36 @@ const Calendar = () => {
         end: selected.endStr,
         allDay: selected.allDay,
       };
-      setCurrentEvents([...currentEvents, newEvent]);
+
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/calendar",
+          newEvent
+        );
+        setCurrentEvents([...currentEvents, response.data]);
+      } catch (error) {
+        console.error("Error creating event:", error);
+      }
     }
   };
 
-  const handleEventClick = (selected) => {
+  const handleEventClick = async (selected) => {
     if (
       window.confirm(
         `Are you sure you want to delete the event '${selected.event.title}'`
       )
     ) {
-      const filteredEvents = currentEvents.filter(
-        (event) => event.id !== selected.event.id
-      );
-      setCurrentEvents(filteredEvents);
+      try {
+        await axios.delete(
+          `http://localhost:5000/calendar/${selected.event.id}`
+        );
+        const filteredEvents = currentEvents.filter(
+          (event) => event.id !== selected.event.id
+        );
+        setCurrentEvents(filteredEvents);
+      } catch (error) {
+        console.error("Error deleting event:", error);
+      }
     }
   };
 
@@ -122,18 +139,7 @@ const Calendar = () => {
             select={handleDateClick}
             eventClick={handleEventClick}
             eventsSet={(events) => setCurrentEvents(events)}
-            initialEvents={[
-              {
-                id: "12315",
-                title: "All-day event",
-                date: "2022-09-14",
-              },
-              {
-                id: "5123",
-                title: "Timed event",
-                date: "2022-09-28",
-              },
-            ]}
+            initialEvents={currentEvents}
           />
         </Box>
       </Box>

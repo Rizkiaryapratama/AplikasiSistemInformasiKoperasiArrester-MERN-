@@ -119,12 +119,11 @@ const Sidebar = () => {
             />
             <Item
               title="Calendar"
-              to="/calendar"
+              to="/events"
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-
             <Typography
               variant="h6"
               color={colors.grey[300]}
