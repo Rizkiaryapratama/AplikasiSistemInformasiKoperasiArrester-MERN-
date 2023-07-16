@@ -132,15 +132,25 @@ const Sidebar = () => {
               Daftar Kontrak Pekerjaan
             </Typography>
             <Item
-              title="Input Data"
+              title={
+                <span>
+                  Input Data
+                  <span style={{ visibility: "hidden" }}>Kontrak</span>
+                </span>
+              }
               to="/inputkontrak"
               icon={<GavelIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Lihat Data"
-              to="/datakontrak "
+              title={
+                <span>
+                  Lihat Data
+                  <span style={{ visibility: "hidden" }}>Kontrak</span>
+                </span>
+              }
+              to="/datakontrak"
               icon={<StorageIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -154,14 +164,24 @@ const Sidebar = () => {
               Beban Usaha
             </Typography>
             <Item
-              title="Input Data"
+              title={
+                <span>
+                  Input Data
+                  <span style={{ visibility: "hidden" }}>Beban Usaha</span>
+                </span>
+              }
               to="/inputbebanusaha"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Lihat Data"
+              title={
+                <span>
+                  Lihat Data
+                  <span style={{ visibility: "hidden" }}>Beban Usaha</span>
+                </span>
+              }
               to="/databebanusaha"
               icon={<StorageIcon />}
               selected={selected}

@@ -73,31 +73,7 @@ router.put("/:id/update", async (req, res)=>{
        console.log(err)
        handleError(err,res)
      }
- 
 
-
-
-//   const result = await Event.findOneAndUpdate(req.params.id,
-//         {
-//         $set: req.body,
-//     }
-//     , {new: true, runValidators: true}).clone()
-
-//     try{
-//         res.status(200).json(result)
-//     }catch(err){
-//         // res.status(500).json(Object.keys(result.errors)[0])
-//         console.log(err)
-//         res.status(400).json(err)
-//     }
-    // .then((docs, err)=>{
-    //     if(docs){
-    //         res.status(200).json(docs)
-    //     }else{
-    //         console.log(err.errors.path)
-    //         handleError(err, res)
-    //     }
-    // })
 })
 
 router.delete("/:id/delete", async(req, res)=>{

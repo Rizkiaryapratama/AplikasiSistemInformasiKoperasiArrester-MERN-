@@ -10,11 +10,7 @@ import Popping from "./Popping";
 import { closeEvent, ShowEventApi, ShowEventsApi } from "../../Redux/actions";
 import { connect } from "react-redux";
 import Header from "../Header";
-import {
-  Box,
-  Button,
-  useTheme,
-} from "@mui/material";
+import { Box, Button, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../../theme";
 
@@ -69,13 +65,13 @@ const MyCalendar = ({ events, ShowEventApi, closeEvent, ShowEventsApi }) => {
         <Link to="/events/add">
           <Button
             type="button"
-            variant="contained"
-            color="secondary"
             sx={{
               fontWeight: "bold",
               fontSize: "14px",
-              cursor: "pointer",
               marginTop: 5,
+              padding: "8px 20px",
+              backgroundColor: colors.greenAccent[600],
+              color: colors.grey[100],
             }}
           >
             Add Event
@@ -95,7 +91,11 @@ const MyCalendar = ({ events, ShowEventApi, closeEvent, ShowEventsApi }) => {
         events={events}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 600, fontSize: 16 }}
+        style={{
+          height: 600,
+          fontSize: 16,
+          fontWeight:"bold"
+        }}
         onSelectEvent={openEventClick}
       />
     </Box>

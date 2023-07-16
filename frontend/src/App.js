@@ -8,7 +8,6 @@ import Line from "./scenes/line";
 import Pie from "./scenes/pie";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
-import Calendar from "./scenes/calendar/calendar";
 import InputKas from "./pages/BukuKasPages/InputKas";
 import InputKontrak from "./pages/DaftarKontrakPages/InputKontrak";
 import InputBebanUsaha from "./pages/BebanUsahaPages/InputBebanUsaha";
@@ -20,8 +19,6 @@ import UpdateKas from "./pages/BukuKasPages/UpdateKas";
 import UpdateKontrak from "./pages/DaftarKontrakPages/UpdateKontrak";
 import Login from "./pages/Login";
 import Signup from "./pages/Singup";
-
-//test
 import MyCalendar from "./components/Calendar/Calendar.jsx"
 import AddEvents from "./components/Calendar/AddEvents";
 import UpdateEvent from "./components/Calendar/UpdateEvent";
@@ -47,18 +44,12 @@ function App() {
             <Routes>
               <Route path="/signup" exact element={<Signup />} />
               <Route path="/login" exact element={<Login />} />
-              
-              <Route path="/events" exact element={<MyCalendar />} />
-              <Route path="/events/add" element={<AddEvents />} />
-              <Route path="/event/:id/update" element={<UpdateEvent />} />
-
               {userAccount ? (
                 <>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/bar" element={<Bar />} />
                   <Route path="/pie" element={<Pie />} />
                   <Route path="/line" element={<Line />} />
-                  <Route path="/calendar" element={<Calendar />} />
                   <Route path="/inputkas" element={<InputKas />} />
                   <Route path="/inputkontrak" element={<InputKontrak />} />
                   <Route
@@ -77,18 +68,16 @@ function App() {
                     path="/updatekontrak/:id"
                     element={<UpdateKontrak />}
                   />
+                  <Route path="/events" element={<MyCalendar />} />
+                  <Route path="/events/add" element={<AddEvents />} />
+                  <Route path="/event/:id/update" element={<UpdateEvent />} />
                 </>
               ) : (
                 <Route path="/" element={<Navigate replace to="/login" />} />
               )}
-
               <Route path="/bar" element={<Navigate replace to="/login" />} />
               <Route path="/pie" element={<Navigate replace to="/login" />} />
               <Route path="/line" element={<Navigate replace to="/login" />} />
-              <Route
-                path="/calendar"
-                element={<Navigate replace to="/login" />}
-              />
               <Route
                 path="/inputkas"
                 element={<Navigate replace to="/login" />}
@@ -123,6 +112,18 @@ function App() {
               />
               <Route
                 path="/updatekontrak/:id"
+                element={<Navigate replace to="/login" />}
+              />
+              <Route
+                path="/events"
+                element={<Navigate replace to="/login" />}
+              />
+              <Route
+                path="/events/add"
+                element={<Navigate replace to="/login" />}
+              />
+              <Route
+                path="/event/:id/update"
                 element={<Navigate replace to="/login" />}
               />
             </Routes>

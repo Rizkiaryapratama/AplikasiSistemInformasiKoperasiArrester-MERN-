@@ -271,7 +271,7 @@ const Dashboard = () => {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        borderBottom={`4px solid ${colors.primary[500]}`}
+        marginBottom="5px"
         colors={colors.grey[100]}
         p="12px"
         borderRadius="10px"
@@ -387,7 +387,7 @@ const Dashboard = () => {
             p="0 30px"
             display="flex "
             justifyContent="space-between"
-            alignItems="center"
+            alignItems="center" 
           >
             <Box>
               <Typography
@@ -418,7 +418,7 @@ const Dashboard = () => {
               </IconButton>
             </Box>
           </Box>
-          <Box height="250px" m="-20px 0 0 0">
+          <Box height="250px" m="-20px 0 0 15px">
             <LineChart isDashboard={true} />
           </Box>
         </Box>
@@ -434,7 +434,7 @@ const Dashboard = () => {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`4px solid ${colors.primary[700]}`}
             colors={colors.grey[100]}
             p="15px"
           >
@@ -446,7 +446,7 @@ const Dashboard = () => {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`4px solid ${colors.primary[700]}`}
             p="15px"
           >
             <Box>
@@ -483,7 +483,7 @@ const Dashboard = () => {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`4px solid ${colors.primary[700]}`}
             colors={colors.grey[100]}
             p="15px"
           >
@@ -495,7 +495,7 @@ const Dashboard = () => {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`4px solid ${colors.primary[700]}`}
             p="15px"
           >
             <Box>
@@ -528,7 +528,7 @@ const Dashboard = () => {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`4px solid ${colors.primary[700]}`}
             p="15px"
           >
             <Box>
@@ -561,7 +561,7 @@ const Dashboard = () => {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`4px solid ${colors.primary[700]}`}
             p="15px"
           >
             <Box>
@@ -582,7 +582,7 @@ const Dashboard = () => {
               />
             </Box>
             <Box
-              backgroundColor={colors.greenAccent[500]}
+              backgroundColor={colors.greenAccent[700]}
               p="5px 10px"
               borderRadius="4px"
             >
@@ -594,7 +594,7 @@ const Dashboard = () => {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`4px solid ${colors.primary[700]}`}
             p="15px"
           >
             <Box>
@@ -627,7 +627,7 @@ const Dashboard = () => {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`4px solid ${colors.primary[700]}`}
             p="15px"
           >
             <Box>
@@ -660,7 +660,7 @@ const Dashboard = () => {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`4px solid ${colors.primary[700]}`}
             p="15px"
           >
             <Box>
@@ -693,7 +693,7 @@ const Dashboard = () => {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`4px solid ${colors.primary[700]}`}
             p="15px"
           >
             <Box>
@@ -726,7 +726,7 @@ const Dashboard = () => {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`4px solid ${colors.primary[700]}`}
             p="15px"
           >
             <Box>
@@ -759,7 +759,7 @@ const Dashboard = () => {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`4px solid ${colors.primary[700]}`}
             p="15px"
           >
             <Box>
@@ -791,7 +791,7 @@ const Dashboard = () => {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`4px solid ${colors.primary[700]}`}
             colors={colors.grey[100]}
             p="15px"
           ></Box>
@@ -847,7 +847,7 @@ const Dashboard = () => {
           >
             Bar Chart Kontrak Kerja
           </Typography>
-          <Box height="250px" mt="-20px">
+          <Box height="250px" mt="-20px 0 0 0">
             <BarChart isDashboard={true} />
           </Box>
         </Box>
