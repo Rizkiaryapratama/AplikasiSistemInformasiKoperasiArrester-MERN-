@@ -118,9 +118,9 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Calendar"
-              to="/events"
-              icon={<CalendarTodayOutlinedIcon />}
+              title="Chart Report"
+              to="/line"
+              icon={<TimelineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -152,6 +152,18 @@ const Sidebar = () => {
               }
               to="/datakontrak"
               icon={<StorageIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title={
+                <span>
+                  Chart Report
+                  <span style={{ visibility: "hidden" }}>Kontrak</span>
+                </span>
+              }
+              to="/bar"
+              icon={<BarChartOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -187,31 +199,29 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              Charts
-            </Typography>
             <Item
-              title="Bar Chart"
-              to="/bar"
-              icon={<BarChartOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Pie Chart"
+              title={
+                <span>
+                  Chart Report
+                  <span style={{ visibility: "hidden" }}>Beban Usaha</span>
+                </span>
+              }
               to="/pie"
               icon={<PieChartOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Event
+            </Typography>
             <Item
-              title="Line Chart"
-              to="/line"
-              icon={<TimelineOutlinedIcon />}
+              title="Calendar"
+              to="/events"
+              icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />

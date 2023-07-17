@@ -35,6 +35,7 @@ const Popping = ({
             boxShadow: 24,
             p: 4,
             width: 500,
+            borderRadius: 5
           }}
         >
           <Typography

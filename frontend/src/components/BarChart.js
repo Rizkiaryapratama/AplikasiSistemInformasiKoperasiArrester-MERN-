@@ -65,6 +65,11 @@ const BarChart = ({ isDashboard = false }) => {
             fill: colors.grey[100],
           },
         },
+        tooltip: {
+          container: {
+            color: colors.primary[500],
+          },
+        },
       }}
       keys={keys}
       indexBy={(d) => moment(d.tgl_kontrak).format("DD/MM/YYYY")}
@@ -105,7 +110,7 @@ const BarChart = ({ isDashboard = false }) => {
         tickRotation: 0,
         legend: isDashboard ? undefined : "Tanggal", // changed
         legendPosition: "middle",
-        legendOffset: 32,
+        legendOffset: 40,
       }}
       axisLeft={{
         tickSize: 5,
